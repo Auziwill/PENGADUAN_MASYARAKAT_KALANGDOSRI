@@ -1,0 +1,368 @@
+:root {
+    /* Definisi Warna Baru */
+    --white: #ffffff;
+    --sea-blue-primary: #206b99; /* Biru Laut utama (solid) */
+    --sea-blue-hover: #174e6f; /* Biru Laut sedikit gelap untuk hover */
+    --sea-blue-light: #e0f2f7; /* Biru Laut terang untuk latar belakang/aksen */
+
+    /* Variabel yang ada, disesuaikan agar konsisten */
+    --success-color: #10b981;
+    --danger-color: #ef4444;
+    --warning-color: #f59e0b;
+    --info-color: #06b6d4;
+    --text-light: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-color: #e2e8f0;
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+    /* Variabel tambahan dari admin/dashboard.blade.php */
+    --sidebar-bg: #1e293b; /* Warna latar belakang sidebar, biarkan gelap untuk kontras */
+    --sidebar-item-hover: rgba(
+        32,
+        107,
+        153,
+        0.1
+    ); /* Biru Laut transparan untuk hover item sidebar */
+    --sidebar-active: #206b99; /* Biru Laut untuk item sidebar aktif */
+}
+
+/* BASE STYLES */
+body {
+    background: var(--white);
+    min-height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #334155; /* Default text color, adapt as needed */
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* COMMON FORM ELEMENTS */
+.input:focus,
+.textarea:focus {
+    border-color: var(--sea-blue-primary);
+    box-shadow: 0 0 0 3px rgba(32, 107, 153, 0.1);
+    background: var(--white);
+    transform: translateY(-2px);
+}
+
+.control.has-icons-left .icon {
+    color: var(--sea-blue-primary);
+    transition: all 0.3s ease;
+}
+
+.input:focus + .icon {
+    color: var(--sea-blue-hover);
+    transform: scale(1.1);
+}
+
+/* BUTTONS */
+.button.is-primary {
+    background: var(--sea-blue-primary);
+    border: none;
+    color: white;
+    box-shadow: 0 4px 15px rgba(32, 107, 153, 0.3);
+    border-radius: 12px; /* Disesuaikan dari login/register */
+    padding: 1rem 2rem; /* Disesuaikan dari login/register */
+    font-size: 1.1rem; /* Disesuaikan dari login/register */
+    font-weight: 600; /* Disesuaikan dari login/register */
+    transition: all 0.3s ease;
+}
+
+.button.is-primary:hover {
+    background: var(--sea-blue-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(32, 107, 153, 0.4);
+}
+
+.button.is-success {
+    /* Untuk tombol daftar di register.blade.php */
+    background: var(--sea-blue-primary);
+    border: none;
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(32, 107, 153, 0.3);
+}
+
+.button.is-success:hover {
+    background: var(--sea-blue-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(32, 107, 153, 0.4);
+}
+
+.button.is-link {
+    /* Jika ini digunakan sebagai tombol utama (primary) */
+    background-color: var(--sea-blue-primary);
+    border-color: transparent;
+    color: white;
+    border-radius: 8px;
+}
+.button.is-link:hover {
+    background-color: var(--sea-blue-hover);
+}
+
+.button.is-light {
+    border-radius: 8px;
+}
+
+/* ERROR / DANGER STYLES */
+.input.is-danger,
+.textarea.is-danger,
+.select.is-danger select {
+    border-color: #ff3860 !important;
+}
+
+.help.is-danger {
+    color: #ff3860;
+}
+
+/* PENGADUAN.BLADE.PHP SPECIFIC STYLES */
+.dashboard-header {
+    background: var(--sea-blue-primary);
+    backdrop-filter: blur(
+        10px
+    ); /* Bisa dihapus jika tidak ada efek gradien/transparan */
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Bisa dihapus jika tidak ada efek gradien/transparan */
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+
+.dashboard-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--sea-blue-light);
+}
+
+.welcome-text h1 {
+    /* Hapus gradient text effect */
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    background-clip: unset;
+    color: white; /* Pastikan teks tetap putih */
+}
+
+.welcome-text .subtitle {
+    color: white;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--sea-blue-primary);
+    border-radius: 2px;
+}
+
+.file-input:hover {
+    border-color: var(--sea-blue-primary);
+    background: rgba(32, 107, 153, 0.05);
+}
+
+.file-input.has-file {
+    border-color: var(--sea-blue-primary);
+    background: rgba(32, 107, 153, 0.1);
+}
+
+.complaint-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--sea-blue-primary);
+}
+
+.status-diproses {
+    background: var(--sea-blue-light);
+    color: var(--sea-blue-primary);
+    border: 1px solid var(--sea-blue-primary);
+}
+
+.tanggapan-card {
+    background-color: #f8fafc; /* Biarkan atau ubah ke putih */
+    border-left: 4px solid var(--sea-blue-primary);
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.notification.is-info.is-light.is-size-7 {
+    background-color: var(--sea-blue-light);
+    color: var(--sea-blue-primary);
+    border-left-color: var(--sea-blue-primary);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* ADMIN/DASHBOARD.BLADE.PHP SPECIFIC STYLES */
+.admin-sidebar {
+    background: var(--sidebar-bg);
+    color: var(--text-light);
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header .logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 16px;
+    background: var(--sea-blue-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    margin: 0 auto 1rem;
+    box-shadow: 0 8px 25px rgba(32, 107, 153, 0.3);
+}
+
+.sidebar-menu a:hover {
+    background-color: var(--sidebar-item-hover);
+    color: var(--text-light);
+    transform: translateX(4px);
+}
+
+.sidebar-menu a.is-active {
+    background: var(--sea-blue-primary);
+    color: white;
+    box-shadow: 0 4px 12px rgba(32, 107, 153, 0.3);
+}
+
+.stat-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--sea-blue-primary);
+}
+
+.stat-icon.primary {
+    background: var(--sea-blue-primary);
+}
+.stat-icon.success {
+    background: var(--success-color);
+}
+.stat-icon.warning {
+    background: var(--warning-color);
+}
+.stat-icon.danger {
+    background: var(--danger-color);
+}
+
+.tag.is-info {
+    background: var(--sea-blue-light);
+    color: var(--sea-blue-primary);
+    font-weight: 500;
+}
+
+/* LOGIN.BLADE.PHP, REGISTER.BLADE.PHP, AUTH/EMAIL.BLADE.PHP SPECIFIC STYLES */
+.login-header,
+.register-header,
+.header-section {
+    /* Menggabungkan gaya untuk header serupa */
+    background: var(--sea-blue-primary);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.login-header::before,
+.register-header::before,
+.header-section::before {
+    content: none; /* Hapus efek shimmer gradient */
+}
+
+.register-link a,
+.login-link a {
+    color: var(--sea-blue-primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.register-link a:hover,
+.login-link a:hover {
+    color: var(--sea-blue-hover);
+    text-decoration: underline;
+}
+
+/* Decorative shapes (dari login/register) */
+.floating-shape:nth-child(1) i,
+.floating-shape:nth-child(2) i,
+.floating-shape:nth-child(3) i {
+    color: var(--sea-blue-light);
+}
+
+/* REGISTER.BLADE.PHP SPECIFIC STYLES */
+.form-progress-bar {
+    height: 100%;
+    background: var(--sea-blue-primary);
+    width: 0%;
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.field.is-focused .label {
+    color: var(--sea-blue-primary);
+    transform: translateY(-2px);
+}
+
+.field.is-valid .input {
+    border-color: var(--sea-blue-primary);
+    background: rgba(32, 107, 153, 0.05);
+}
+
+.field.is-valid .control::after {
+    content: "✓";
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--sea-blue-primary);
+    font-weight: bold;
+    animation: checkmark 0.3s ease;
+}
+
+/* ADMIN/USERS/CREATE.BLADE.PHP, ADMIN/USERS/EDIT.BLADE.PHP, ADMIN/TANGGAPANS/CREATE.BLADE.PHP, ADMIN/TANGGAPANS/EDIT.BLADE.PHP SPECIFIC STYLES */
+.container-box {
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 600px;
+}
