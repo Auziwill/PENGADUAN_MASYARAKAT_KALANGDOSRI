@@ -1,13 +1,11 @@
 
 {
     "version": 2,
-    "framework": null,
-    "functions": {
-        "api/index.php": { "runtime": "vercel-php@0.7.0" }
+    "builds": {
+        "api/index.php": { "src": "public/index.php", "use": "@vercel/laravel" }
     },
     "routes": [
-        { "src": "/build/(.*)", "dest": "/public/build/" },
-        { "src": "/(.*)", "dest": "/api/index.php" }
+        { "src": "/(.*)", "dest": "/public/index.php" },
     ],
     "public": true,
     "buildCommand": "vite build",
